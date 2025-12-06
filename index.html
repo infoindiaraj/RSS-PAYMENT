@@ -3,139 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urgent: Second Payment Reminder - Invoice [Invoice Number]</title>
+    <title>RAJ STEELS SYNDICATE Payment Gateway</title>
     <style>
+        /* --- General Setup --- */
+        :root {
+            --primary-bg: #4a148c; /* Deep Purple for the header */
+            --secondary-bg: #ffffff;
+            --cta-color: #ff5722; /* Orange for Call to Action */
+            --text-color: #333;
+            --light-text: #f0f0f0;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #444;
+            font-family: var(--font-family);
             margin: 0;
-            padding: 20px;
-            background-color: #f7f7f7;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: var(--text-color);
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 30px;
+            max-width: 900px;
+            margin: 50px auto;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-left: 6px solid #ff9800; /* Amber/Orange for secondary urgency */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-        .header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 20px;
+
+        /* --- Header/Banner Section --- */
+        .header-banner {
+            background-color: var(--primary-bg);
+            /* Adds subtle dots/texture similar to the sample image */
+            background-image: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.1) 1px, transparent 1px), radial-gradient(circle at 90% 90%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 40px 60px;
+            color: var(--light-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        h2 {
-            color: #d32f2f; /* Deep Red for high urgency */
-            font-size: 1.8em;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-section img {
+            height: 50px; /* Adjust size as needed */
+            border-radius: 50%; /* Optional: if you want a circular logo look */
+            background-color: white; /* Ensures visibility */
+            padding: 5px;
+        }
+        .logo-text h1 {
+            font-size: 2.2em;
             margin: 0;
+            font-weight: 700;
         }
-        .tagline {
-            color: #ff9800;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-top: 5px;
+        .logo-text p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #ccc;
         }
-        .details-box {
-            background-color: #fffde7;
-            border: 1px solid #ffe082;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
+        .info-section {
+            text-align: right;
         }
-        .amount {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #d32f2f;
-            display: block;
+        .info-section h2 {
+            font-size: 1.8em;
             margin-bottom: 5px;
+            color: #ffcc80; 
         }
-        .overdue {
-            font-size: 1.2em;
-            color: #555;
-            font-weight: 500;
-        }
-        /* --- CTA Button Styling --- */
-        .cta-button-wrapper {
-            text-align: center;
-            margin: 30px 0;
+        .cta-box {
+            font-size: 1.1em;
+            font-weight: 600;
         }
         .cta-button {
-            /* Inline styles are crucial for button rendering across various email clients */
             display: inline-block;
-            padding: 15px 25px;
-            background-color: #007bff; /* Primary Action Blue */
-            color: #ffffff !important; 
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: var(--cta-color);
+            color: var(--secondary-bg) !important;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.2em;
             font-weight: bold;
-            text-align: center;
-            border: 1px solid #0056b3;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
         }
         .cta-button:hover {
-            background-color: #0056b3;
+            background-color: #e64a19;
         }
-        /* -------------------------- */
-        .date-info {
-            font-style: italic;
-            color: #777;
+
+        /* --- Content Area --- */
+        .content-area {
+            background-color: var(--secondary-bg);
+            padding: 40px 60px;
+            display: flex;
+            gap: 40px;
+        }
+        .payment-column {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .qr-column {
+            flex: 0 0 250px; 
             text-align: center;
-            margin-bottom: 20px;
         }
-        .footer {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-            font-size: 0.9em;
-            color: #777;
+        .content-area h3 {
+            color: var(--primary-bg);
+            font-size: 1.4em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        
+        /* --- Bank Details Table --- */
+        .bank-details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bank-details-table td {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .bank-details-table .label {
+            font-weight: 600;
+            width: 45%;
+            color: #555;
+        }
+        .bank-details-table .value {
+            font-weight: bold;
+            color: var(--text-color);
+            background-color: #f9f9f9; /* Subtle background for value */
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .qr-code-box img {
+            max-width: 200px;
+            height: auto;
+            border: 5px solid var(--cta-color); 
+            border-radius: 8px;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        .upi-id {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--cta-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            .header-banner {
+                flex-direction: column;
+                padding: 30px 20px;
+                text-align: center;
+            }
+            .logo-section {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .logo-text {
+                text-align: center;
+            }
+            .info-section {
+                margin-top: 20px;
+            }
+            .content-area {
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+            .qr-column {
+                flex: none;
+                width: 100%;
+                order: -1; 
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>🚨 SECOND REMINDER: IMMEDIATE ACTION REQUIRED 🚨</h2>
-            <p class="tagline">Overdue Payment for Materials Supplied</p>
+
+<div class="container">
+    
+    <div class="header-banner">
+        <div class="logo-section">
+            <img src="RAJ STEELS LOGO.PNG" alt="RAJ STEELS SYNDICATE Logo">
+            <div class="logo-text">
+                <h1>RAJ STEELS SYNDICATE</h1>
+                <p>Official Payment Portal</p>
+            </div>
+        </div>
+        <div class="info-section">
+            <h2>Payment Gateway</h2>
+            <div class="cta-box">
+                <p>Invoice **[Insert Invoice Number]**</p>
+                <p>Amount Due: **₹8,957**</p>
+                <a href="mailto:[**YOUR EMAIL ADDRESS HERE**]?subject=Payment%20Confirmation%20for%20Invoice%20[Invoice%20Number]" class="cta-button">
+                    CONFIRM PAYMENT / QUERY
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <div class="payment-column">
+            <h3>1. Bank Transfer Details (NEFT/RTGS/IMPS)</h3>
+            <table class="bank-details-table">
+                <tr>
+                    <td class="label">Account Holder Name:</td>
+                    <td class="value">RAJ STEELS SYNDICATE</td>
+                </tr>
+                <tr>
+                    <td class="label">Bank Name:</td>
+                    <td class="value">KOTAK MAHINDRA BANK</td>
+                </tr>
+                <tr>
+                    <td class="label">Account Number:</td>
+                    <td class="value">0786123786</td>
+                </tr>
+                <tr>
+                    <td class="label">IFSC Code:</td>
+                    <td class="value">KKBK0008497</td>
+                </tr>
+                <tr>
+                    <td class="label">Branch Name:</td>
+                    <td class="value">THAMBU CHETTY STREET</td>
+                </tr>
+                <tr>
+                    <td class="label">Account Type:</td>
+                    <td class="value">CURRENT</td>
+                </tr>
+            </table>
+            <p style="font-size: 0.9em; margin-top: 20px;">
+                *Please use the Invoice Number [**Insert Invoice Number**] as the payment reference.*
+            </p>
         </div>
 
-        <p>Dear [**Client Name/Contact Name**],</p>
-
-        <p>This is a **crucial second notification** regarding the outstanding payment for the materials supplied on **November 11, 2025** (Invoice [**Insert Invoice Number**]).</p>
-        
-        <div class="details-box">
-            <p class="overdue">OUTSTANDING AMOUNT</p>
-            <span class="amount">₹8,957</span>
-            <p class="overdue">**25 DAYS OVERDUE**</p>
-        </div>
-
-        <p>We kindly request you settle this outstanding amount immediately to maintain a good standing and prevent the activation of potential late fees or suspension of future services.</p>
-
-        <div class="cta-button-wrapper">
-            <a href="[**INSERT FULL URL TO YOUR PAYMENT WEBPAGE HERE**]" class="cta-button">
-                VIEW PAYMENT OPTIONS & PAY NOW
-            </a>
-        </div>
-        
-        <p style="text-align: center; font-size: 0.9em; color: #777;">
-            (The link above directs you to our secure payment page with Bank & UPI details.)
-        </p>
-
-        <p style="margin-top: 25px;">If you have already submitted this payment, please disregard this email and accept our apologies. Kindly notify us if this is the case so we can update our records.</p>
-        
-        <div class="footer">
-            <p>Should you have any questions or require an alternative payment arrangement, please contact us immediately.</p>
-            <p>
-                Best Regards,<br>
-                [**Your Name/Company Name**]<br>
-                [**Your Phone Number**] | [**Your Email Address**]
+        <div class="qr-column">
+            <h3>2. UPI Quick Scan</h3>
+            <div class="qr-code-box">
+                <img src="raj kotak qr.jpg" alt="UPI QR Code for Raj Steels Syndicate">
+            </div>
+            <div class="upi-id">
+                UPI ID: rajsteels1@kotak
+            </div>
+            <p style="font-size: 0.9em; color: #777;">
+                Scan with any UPI App (GPay, PhonePe, Paytm, etc.) to pay instantly.
             </p>
         </div>
     </div>
+
+    <div style="background-color: #eee; text-align: center; padding: 15px; font-size: 0.85em; color: #555;">
+        &copy; [**Current Year**] RAJ STEELS SYNDICATE. | For support, call [**Your Phone Number**] or email [**YOUR EMAIL ADDRESS HERE**].
+    </div>
+</div>
+
 </body>
 </html>
