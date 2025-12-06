@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urgent: Second Payment Reminder - Invoice [Invoice Number]</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #444;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ff9800; /* Amber/Orange for secondary urgency */
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #d32f2f; /* Deep Red for high urgency */
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .tagline {
+            color: #ff9800;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        .details-box {
+            background-color: #fffde7;
+            border: 1px solid #ffe082;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .amount {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #d32f2f;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .overdue {
+            font-size: 1.2em;
+            color: #555;
+            font-weight: 500;
+        }
+        /* --- CTA Button Styling --- */
+        .cta-button-wrapper {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta-button {
+            /* Inline styles are crucial for button rendering across various email clients */
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #007bff; /* Primary Action Blue */
+            color: #ffffff !important; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        /* -------------------------- */
+        .date-info {
+            font-style: italic;
+            color: #777;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>🚨 SECOND REMINDER: IMMEDIATE ACTION REQUIRED 🚨</h2>
+            <p class="tagline">Overdue Payment for Materials Supplied</p>
+        </div>
+
+        <p>Dear [**Client Name/Contact Name**],</p>
+
+        <p>This is a **crucial second notification** regarding the outstanding payment for the materials supplied on **November 11, 2025** (Invoice [**Insert Invoice Number**]).</p>
+        
+        <div class="details-box">
+            <p class="overdue">OUTSTANDING AMOUNT</p>
+            <span class="amount">₹8,957</span>
+            <p class="overdue">**25 DAYS OVERDUE**</p>
+        </div>
+
+        <p>We kindly request you settle this outstanding amount immediately to maintain a good standing and prevent the activation of potential late fees or suspension of future services.</p>
+
+        <div class="cta-button-wrapper">
+            <a href="[**INSERT FULL URL TO YOUR PAYMENT WEBPAGE HERE**]" class="cta-button">
+                VIEW PAYMENT OPTIONS & PAY NOW
+            </a>
+        </div>
+        
+        <p style="text-align: center; font-size: 0.9em; color: #777;">
+            (The link above directs you to our secure payment page with Bank & UPI details.)
+        </p>
+
+        <p style="margin-top: 25px;">If you have already submitted this payment, please disregard this email and accept our apologies. Kindly notify us if this is the case so we can update our records.</p>
+        
+        <div class="footer">
+            <p>Should you have any questions or require an alternative payment arrangement, please contact us immediately.</p>
+            <p>
+                Best Regards,<br>
+                [**Your Name/Company Name**]<br>
+                [**Your Phone Number**] | [**Your Email Address**]
+            </p>
+        </div>
+    </div>
+</body>
+</html>
